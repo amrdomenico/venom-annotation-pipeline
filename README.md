@@ -1,4 +1,5 @@
 # Venom Classifier
+DOI: 10.5281/zenodo.19474487
 
 Automated functional annotation and venom-class classification of snake venom
 proteins identified by bottom-up proteomics.
