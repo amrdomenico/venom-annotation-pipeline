@@ -1,0 +1,36 @@
+# Output files
+dist/
+
+# Input / source data (do NOT commit raw data files) 
+# Commit only anonymised or fully public datasets.
+# Add exceptions below with a leading '!' if a file is safe to share.
+src/*.xlsx
+src/*.csv
+src/*.tsv
+!src/venom_proteomics_example.xlsx   # example input is safe to commit
+
+
+# Python 
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments 
+.venv/
+venv/
+env/
+ENV/
+
+# Build / packaging 
+build/
+dist_pkg/
+*.egg-info/
+*.egg
+
+# IDE / OS 
+.vscode/
+.idea/
+*.DS_Store
+Thumbs.db
