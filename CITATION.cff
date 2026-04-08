@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Domênico"
+  given-names: "A. M. R."
+  orcid: "https://orcid.org/0000-0002-4487-2383"
+title: "venom-annotation-pipeline"
+version: 1.0.1
+doi: 10.5281/zenodo.19474487
+date-released: 2026-04-08
+url: "https://github.com/amrdomenico/venom-annotation-pipeline"
