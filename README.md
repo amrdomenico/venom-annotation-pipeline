@@ -58,6 +58,22 @@ python venom_classifier.py
 
 The annotated spreadsheet will be written to `dist/venom_annotation_results.xlsx`.
 
+### Preparing your input file
+
+Your proteomics spreadsheet must follow the same structure as
+`src/venom_proteomics_example.xlsx`, replacing the example data with your
+own experimental results:
+
+- Saved inside the `src/` folder
+- Named `venom_proteomics_example.xlsx`
+- Sheet named `Pars_Uniprot`
+- A column named `Locus` containing valid UniProt accessions (one per row)
+
+The remaining columns (abundance values, coverage, scores, etc.) should
+contain your experimental data and will be carried through to the output
+alongside the classification results. Their names and content do not affect
+classification.
+
 ## Data
 
 | File | Source | Notes |
@@ -120,8 +136,8 @@ Before scoring, each protein is checked against two filter lists:
 `alpha-2-macroglobulin`, or `serine protease inhibitor` are assigned
 `Inhibitor/Non-Toxin`, unless they also match a venom-relevant inhibitor term
 (e.g. `kunitz`, `three-finger`, `venom factor`). This two-step logic ensures
-that genuine venom toxins with inhibitory activity — such as Kunitz-type
-dendrotoxins or cobra venom factor — are not incorrectly discarded.
+that genuine venom toxins with inhibitory activity, such as Kunitz-type
+dendrotoxins or cobra venom factor, are not incorrectly discarded.
 
 ### SVMP sub-classification
 
