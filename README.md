@@ -19,27 +19,40 @@ proteins identified by bottom-up proteomics.
 ## Directory layout
 
 ```
-project/
+venom-annotation-pipeline/
+├── .github/
+│   └── ISSUE_TEMPLATE/             # Bug report, feature request, and question templates
+├── docs/
+│   └── feat_embeddings_classification.md
 ├── src/
-│   ├── entry.list.csv                  # InterPro flat-file entry list (not versioned — see Data)
+│   ├── entry.list.csv              # InterPro flat-file entry list (not versioned — see Data)
 │   └── venom_proteomics_example.xlsx
-├── dist/                               # created automatically at runtime
+├── dist/                           # created automatically at runtime
 ├── venom_classifier.py
 ├── requirements.txt
+├── CHANGELOG.md
+├── CITATION.cff
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── LICENSE
 └── README.md
 ```
 
 > **Note:** `src/` data files and the `dist/` folder are excluded from version
 > control by `.gitignore`. See *Data* below.
 
+## Installation
+
+```bash
+git clone https://github.com/amrdomenico/venom-annotation-pipeline.git
+cd venom-annotation-pipeline
+pip install -r requirements.txt
+```
+
 ## Requirements
 
 - Python ≥ 3.10
 - See `requirements.txt`
-
-```bash
-pip install -r requirements.txt
-```
 
 ## Setup
 
@@ -155,6 +168,30 @@ composition, querying evidence fields in order of reliability
 The source field used is reported alongside the sub-class for traceability,
 e.g. `P-III (Domain)` or `P-I (UniProt_cc_similarity)`. When no field yields
 sufficient evidence the result is reported as `P-? (SVMP confirmed)`.
+
+## Known limitations
+
+**Fixed input paths** — the script expects input files at hardcoded paths (`src/venom_proteomics_example.xlsx`, `src/entry.list.csv`). There is no CLI interface; changing inputs requires editing the script directly.
+
+**Sequential UniProt API calls** — accessions are queried one at a time. On large datasets (hundreds of proteins) this can be slow due to network latency and rate limits.
+
+**No API retry or cache** — if a UniProt request fails, the protein is silently skipped. There is no retry logic or local cache, so transient network errors can produce incomplete results without warning.
+
+**GO terms are fetched but not used for classification** — GO terms are retrieved from UniProt and included in the output for reference, but intentionally excluded from the scoring system. GO terms describe biological processes and molecular functions, not protein identity, and are insufficient to discriminate venom classes reliably.
+
+**Manual testing only** — there is no automated test suite. Validation is done by running the pipeline against the example file and inspecting the output manually, as described in CONTRIBUTING.md.
+
+## Contributing
+
+Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening an issue or pull request.
+
+## Code of Conduct
+
+This project follows a [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold it.
+
+## Acknowledgements
+
+This pipeline was developed from proteomics data generated during a postgraduate specialization project supervised by **Prof. Lucilene Delazari dos Santos** (IBTEC – UNESP).
 
 ## License
 

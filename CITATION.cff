@@ -2,8 +2,13 @@ cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 authors:
 - family-names: "Domênico"
-  given-names: "A. M. R."
+  given-names: "Adriana Moraes Rodrigues"
   orcid: "https://orcid.org/0000-0002-4487-2383"
+# supervisor:
+- family-names: "dos Santos"
+  given-names: "Lucilene Delazari"
+  affiliation: "Instituto de Biotecnologia (IBTEC), Universidade Estadual Paulista Júlio de Mesquita Filho (UNESP)"
+  orcid: "https://orcid.org/0000-0001-5832-1825"
 title: "venom-annotation-pipeline"
 version: 1.0.1
 doi: 10.5281/zenodo.19474487
